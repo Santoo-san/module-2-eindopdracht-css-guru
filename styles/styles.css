@@ -137,7 +137,7 @@ main img {
 /* Social media buttons */
 aside {
   position: fixed;
-  top: 10em;
+  top: 20vh;
   right: 0;
   z-index: 4;
 }
