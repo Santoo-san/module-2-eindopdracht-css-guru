@@ -3,6 +3,8 @@ body {
   background: #c3cfe2;
   text-align: center;
   font-family: "Roboto", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 main {
@@ -14,12 +16,34 @@ main {
       grid-template-rows: 1fr;
 }
 
+header {
+  -webkit-box-shadow: 5px 5px 10px 5px gray;
+          box-shadow: 5px 5px 10px 5px gray;
+  background: white;
+  border-radius: 20px;
+  margin: 0 50px;
+}
+
+header h2 {
+  color: gray;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+aside {
+  padding-top: 50px;
+  margin: 0;
+}
+
 /* testimonial styling */
 main a {
-  display: none;
-  -webkit-transition: all 300ms ease-in;
-  transition: all 300ms ease-in;
-  /*@NIELS, deze lijkt dus niks te doen*/
+  padding: 5px;
+  border-radius: 10px;
+  color: rgba(0, 0, 0, 0);
+  background: rgba(128, 128, 128, 0);
+  text-decoration: none;
+  -webkit-transition: all 500ms ease-in;
+  transition: all 500ms ease-in;
 }
 
 .testimonial__top {
@@ -75,18 +99,18 @@ main img {
       justify-self: center;
   -webkit-transition: all 300ms ease-in;
   transition: all 300ms ease-in;
-  /*@NIELS, deze doet het wel goed*/
 }
 
 .testimonial:hover {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: all 300ms ease-in;
+  transition: all 300ms ease-in;
 }
 
 .testimonial:hover .testimonial__top {
   -webkit-transition: all 300ms ease-in;
   transition: all 300ms ease-in;
-  /*@NIELS, deze doet het wel goed*/
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -94,7 +118,6 @@ main img {
   margin-top: 0;
   -webkit-transition: all 300ms ease-in;
   transition: all 300ms ease-in;
-  /*@NIELS, deze doet het wel goed*/
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -103,21 +126,163 @@ main img {
 }
 
 .testimonial:hover a {
-  padding: 5px;
-  border-radius: 10px;
-  display: unset;
   color: black;
   background: gray;
-  -webkit-transition: all 300ms ease-in;
-  transition: all 300ms ease-in;
-  /*@NIELS, deze lijkt dus niks te doen*/
 }
 
 .testimonial:hover img {
   display: none;
-  -webkit-transition: all 300ms ease-in;
-  transition: all 300ms ease-in;
-  /*@NIELS, deze lijkt dus niks te doen*/
+}
+
+/* Social media buttons */
+aside {
+  position: fixed;
+  top: 10em;
+  right: 0;
+  z-index: 4;
+}
+
+.social-media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.social-media img {
+  width: 30px;
+}
+
+.pinterest {
+  background: red;
+  padding: 0;
+  margin-right: -5px;
+}
+
+.pinterest div {
+  background-color: red;
+  padding: 20px;
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+  width: 1em;
+}
+
+.pinterest div:hover {
+  -webkit-transform: translateX(-40px);
+          transform: translateX(-40px);
+}
+
+.facebook {
+  background: #3b5998;
+  padding: 0;
+  margin-right: -5px;
+}
+
+.facebook div {
+  background-color: #3b5998;
+  padding: 20px;
+  margin-right: -5px;
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+  width: 1em;
+}
+
+.facebook div:hover {
+  -webkit-transform: translateX(-40px);
+          transform: translateX(-40px);
+}
+
+.twitter {
+  background: #00aced;
+  padding: 0;
+  margin-right: -5px;
+}
+
+.twitter div {
+  background: #00aced;
+  padding: 20px;
+  margin-right: -5px;
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+  width: 1em;
+}
+
+.twitter div:hover {
+  -webkit-transform: translateX(-40px);
+          transform: translateX(-40px);
+}
+
+.linkedin {
+  background: #007bb6;
+  padding: 0px;
+  margin-right: -5px;
+}
+
+.linkedin div {
+  background-color: #007bb6;
+  padding: 20px;
+  margin-right: -5px;
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+  width: 1em;
+}
+
+.linkedin div:hover {
+  -webkit-transform: translateX(-40px);
+          transform: translateX(-40px);
+}
+
+/* CSS pseudo-element styling */
+.icon a:visited {
+  text-decoration: none;
+}
+
+.icon-pinterest::before {
+  content: "\f0d2";
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  display: inline-block;
+}
+
+.icon-twitter::before {
+  content: "\f099";
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 900;
+  font-style: normal;
+  color: white;
+  display: inline-block;
+}
+
+.icon-facebook::before {
+  content: "\f39e";
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  display: inline-block;
+}
+
+.icon-linkedin::before {
+  content: "\f0e1";
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
 }
 
 /* media query */
@@ -130,6 +295,9 @@ main img {
     -ms-grid-rows: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
   }
+  header {
+    margin: 0 100px;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -140,6 +308,9 @@ main img {
         grid-template-columns: 1fr 1fr 1fr;
     -ms-grid-rows: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
+  }
+  header {
+    margin: 0 200px;
   }
 }
 /*# sourceMappingURL=styles.css.map */
