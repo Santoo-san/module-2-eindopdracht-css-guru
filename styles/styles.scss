@@ -1,43 +1,44 @@
+@mixin aside__IconStyling {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  display: inline-block;
+}
+
 /* Main */
 
-@mixin testimonialStyle {
-  border-radius: 20px;
-  width: 300px;
-  margin: 10px;
-  box-shadow: 5px 5px 10px 5px gray;
-  align-self: center;
-  justify-self: center;
-}
-body {
+.homepageBody {
   background: #c3cfe2;
   text-align: center;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
 }
-main {
+.homepageBody__main {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 }
-header {
+.homepageBody__header {
   box-shadow: 5px 5px 10px 5px gray;
   background: white;
   border-radius: 20px;
   margin: 0 50px;
-  & h2 {
+  & .testimonial__header {
     color: gray;
     font-size: 20px;
     padding-bottom: 10px;
   }
 }
 
-aside {
+.homepageBody__aside {
   padding-top: 50px;
   margin: 0;
 }
+
 /* testimonial styling */
 
-main a {
+.testimonial__link {
   padding: 5px;
   border-radius: 10px;
   color: rgba(0, 0, 0, 0);
@@ -51,7 +52,7 @@ main a {
   padding-bottom: 50px;
   border-radius: 20px 20px 0px 0px;
   height: 200px;
-  & p {
+  & .testimonial__text {
     font-size: 20px;
     color: gray;
   }
@@ -63,7 +64,7 @@ main a {
   border-radius: 0px 0px 20px 20px;
   color: white;
 }
-h3 {
+.testimonial__name {
   margin-top: 50px;
   font-size: 24px;
   margin-bottom: -10px;
@@ -71,7 +72,7 @@ h3 {
 
 /* images styling */
 
-main img {
+.testimonial__img {
   height: 120px;
   border-radius: 50%;
   width: 120px;
@@ -84,7 +85,12 @@ main img {
 /* transform */
 
 .testimonial {
-  @include testimonialStyle;
+  border-radius: 20px;
+  width: 300px;
+  margin: 10px;
+  box-shadow: 5px 5px 10px 5px gray;
+  align-self: center;
+  justify-self: center;
   transition: all 300ms ease-in;
   &:hover {
     transform: scale(0.9);
@@ -98,14 +104,14 @@ main img {
       transition: all 300ms ease-in;
       background: rgba(0, 0, 0, 0.5);
     }
-    & p {
+    & .testimonial__text {
       display: none;
     }
-    & a {
+    & .testimonial__link {
       color: black;
       background: gray;
     }
-    & img {
+    & .testimonial__img {
       display: none;
     }
   }
@@ -113,73 +119,27 @@ main img {
 
 /* Social media buttons */
 
-aside {
+.homepageBody__aside {
   position: fixed;
   top: 20vh;
   right: 0;
   z-index: 4;
 }
-.social-media {
+.aside__socialmedia {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
   box-sizing: border-box;
-
   & img {
     width: 30px;
   }
 }
-.pinterest {
-  background: red;
-  padding: 0;
-  margin-right: -5px;
-  & div {
-    background-color: red;
-    padding: 20px;
-    transition: all 400ms ease-out;
-    width: 1em;
-    &:hover {
-      transform: translateX(-40px);
-    }
-  }
-}
-.facebook {
-  background: #3b5998;
-  padding: 0;
-  margin-right: -5px;
-  & div {
-    background-color: #3b5998;
-    padding: 20px;
-    margin-right: -5px;
-    transition: all 400ms ease-out;
-    width: 1em;
-  }
-  & div:hover {
-    transform: translateX(-40px);
-  }
-}
-.twitter {
-  background: #00aced;
-  padding: 0;
-  margin-right: -5px;
-  & div {
-    background: #00aced;
-    padding: 20px;
-    margin-right: -5px;
-    transition: all 400ms ease-out;
-    width: 1em;
-    &:hover {
-      transform: translateX(-40px);
-    }
-  }
-}
-.linkedin {
-  background: #007bb6;
+
+.aside__link {
   padding: 0px;
   margin-right: -5px;
   & div {
-    background-color: #007bb6;
     padding: 20px;
     margin-right: -5px;
     transition: all 400ms ease-out;
@@ -187,67 +147,78 @@ aside {
     &:hover {
       transform: translateX(-40px);
     }
+  }
+}
+
+.aside__link--pinterest {
+  background: red;
+  & .icon--pinterest {
+    background-color: red;
+  }
+}
+
+.aside__link--facebook {
+  background: #3b5998;
+  & .icon--facebook {
+    background-color: #3b5998;
+  }
+}
+.aside__link--twitter {
+  background: #00aced;
+  & .icon--twitter {
+    background: #00aced;
+  }
+}
+.aside__link--linkedin {
+  background: #007bb6;
+
+  & .icon--linkedin {
+    background-color: #007bb6;
   }
 }
 
 /* CSS pseudo-element styling */
-.icon a:visited {
+
+.aside__icon a:visited {
   text-decoration: none;
 }
-.icon-pinterest::before {
+.icon--pinterest::before {
   content: "\f0d2";
-  font-family: "Font Awesome 5 Brands";
-  font-weight: 400;
-  font-style: normal;
-  color: white;
-  display: inline-block;
+  @include aside__IconStyling;
 }
 
-.icon-twitter::before {
+.icon--twitter::before {
   content: "\f099";
-  font-family: "Font Awesome 5 Brands";
-  font-weight: 900;
-  font-style: normal;
-  color: white;
-  display: inline-block;
+  @include aside__IconStyling;
 }
 
-.icon-facebook::before {
+.icon--facebook::before {
   content: "\f39e";
-  font-family: "Font Awesome 5 Brands";
-  font-weight: 400;
-  font-style: normal;
-  color: white;
-  display: inline-block;
+  @include aside__IconStyling;
 }
-.icon-linkedin::before {
+.icon--linkedin::before {
   content: "\f0e1";
-  font-family: "Font Awesome 5 Brands";
-  font-weight: 400;
-  font-style: normal;
-  text-decoration: none;
-  color: white;
-  display: inline-block;
+  @include aside__IconStyling;
 }
 /* media query */
 
 @media (min-width: 500px) {
-  main {
+  .homepageBody__main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
   }
-  header {
+  .homepageBody__header {
     margin: 0 100px;
   }
 }
 @media (min-width: 1000px) {
-  main {
+  .homepageBody__main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
   }
-  header {
+  .homepageBody__header {
     margin: 0 200px;
   }
 }
